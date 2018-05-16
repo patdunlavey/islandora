@@ -950,13 +950,16 @@ function callback_islandora_breadcrumbs_backends(AbstractObject $object) {
  * Permit modules to alter the filename of a downloaded datastream.
  *
  * @param string $filename
+ *   The filename being created.
+ *
  * @param AbstractDatastream $datastream
+ *   The datastream object being downloaded.
  */
 function hook_datastream_filename_alter(&$filename, AbstractDatastream $datastream) {
 
   // Example taken from islandora_datastream_filenamer.
   $pattern = variable_get('islandora_ds_download_filename_pattern', FALSE);
-  if($pattern) {
+  if ($pattern) {
     $filename = token_replace($pattern,
       array('datastream' => $datastream),
       array('clear' => TRUE)
