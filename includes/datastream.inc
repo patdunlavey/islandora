@@ -67,7 +67,6 @@ function islandora_view_datastream(AbstractDatastream $datastream, $download = F
     // Allow other modules to modify or replace the filename.
     drupal_alter('datastream_filename', $filename, $datastream);
 
-
     header("Content-Disposition: attachment; filename=\"$filename\"");
   }
 
